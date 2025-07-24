@@ -16,6 +16,7 @@ const modalOverlay = document.querySelector('#modal-overlay')
 const progress = document.querySelector('#progress')
 const doneCheckbox = document.querySelector('#done-checkbox')
 const modalContent = document.querySelector('#modal-content')
+const form = document.querySelector('#add-skill-form')
 
 
 function init() {
@@ -124,7 +125,6 @@ function modals() {
 
 
 function addNewSkill() {
-  const form = document.querySelector('#add-skill-form')
   form.addEventListener('submit', (event) => {
     event.preventDefault()
     let title = form.querySelector('#skill-name').value
