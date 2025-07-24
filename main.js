@@ -131,6 +131,7 @@ function addNewSkill() {
     // let text = form.querySelector('#skill-text').value
     let title = event.target.title.value.trim()
     let text = event.target.description.value.trim()
+    if (!title && !text) return alert('Заполните все поля формы')
     const newSkill = {
       title,
       text,
