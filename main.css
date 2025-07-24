@@ -1,0 +1,202 @@
+* {
+  font-family: "TikTok Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+.heading {
+  margin-bottom: 20px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 40px;
+  border: 2px solid #f2f2f2;
+  border-radius: 6px;
+}
+
+#skills {
+  margin: 30px 0;
+}
+
+#skills h2 {
+  margin-bottom: 20px;
+}
+
+#skills-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.skill-item {
+  border: 2px solid #f2f2f2;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.skill-item:hover {
+  background-color: #f2f2f2;
+  transition: all .7s;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.skill-item.done {
+  background-color: #50C878;
+  color: #fff;
+  border: none;
+}
+
+#add-skill-form h2 {
+  margin-bottom: 20px;
+}
+
+#add-skill-form input {
+  border: 2px solid #f2f2f2;
+  width: 30%;
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
+
+#add-skill-form input:focus-visible, #add-skill-form textarea:focus-visible {
+  outline: 2px solid #50C878;
+}
+
+#add-skill-form textarea {
+  border: 2px solid #f2f2f2;
+  width: 30%;
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
+
+#add-skill-form button {
+  padding: 10px 35px;
+  background: #13A76B;
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  color: #fff;
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #00000042
+}
+
+.modal {
+  display: none;
+  position: absolute;
+  background: #fff;
+  padding: 20px 35px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 200;
+  max-width: 500px;
+  width: 500px;
+  border-radius: 10px;
+}
+
+#close-modal:hover {
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: all .7s;
+}
+
+.modal.open {
+  display: block;
+}
+
+.modal.open+.modal-overlay {
+  display: block;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: none;
+  background: #50C878;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 19px;
+}
+
+
+.close:hover {
+  opacity: .8;
+}
+
+.modal-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: #000;
+}
+
+.modal-content {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.hr {
+  width: 100%;
+  height: 2px;
+  background-color: #f2f2f2;
+  border-radius: 50px;
+  margin-bottom: 10px;
+}
+
+.done {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.progress-bar {
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-text {
+  margin-bottom: 20px;
+}
+
+.progress-value {
+  position: absolute;
+  background-color: #50C878;
+  height: 37px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+
+
