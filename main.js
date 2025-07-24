@@ -67,6 +67,7 @@ function modals() {
   closeBtn.addEventListener('click', closeModal)
   modalOverlay.addEventListener('click', closeModal)
   modal.addEventListener('change', changeSkillStatus)
+  modal.addEventListener('click', deleteSkill)
 
   function openModal(event) {
     const data = event.target.dataset
@@ -82,11 +83,13 @@ function modals() {
         ${skill.text}
       </div>
       <div class="hr"></div>
-      <div class="done" id="done">
-        <input type="checkbox" id="done-checkbox" ${skill.done ? 'checked' : ''} data-type="${skill.type}">
-        <label for="done-checkbox">Выучил технологию</label>
-      </div>
-      
+      <div class="modal-bottom">
+        <div class="done" id="done">
+          <input type="checkbox" id="done-checkbox" ${skill.done ? 'checked' : ''} data-type="${skill.type}">
+          <label for="done-checkbox">Выучил технологию</label>
+        </div>
+        <a class="delete" href="#" data-type="${skill.type}">Удалить технологию</a>
+      </div> 
       `
     }
     if (event.target.classList.contains('skill-item') || event.target.classList.contains('skill-title')) {
@@ -103,6 +106,16 @@ function modals() {
     const type = event.target.dataset.type
     const skill = skills.find(skill => skill.type === type)
     skill.done = !skill.done
+    renderCards()
+    renderProgress()
+    closeModal()
+  }
+
+  function deleteSkill(event) {
+    const target = event.target
+    if (target.className !== 'delete') return
+    const type = event.target.dataset.type
+    skills.splice(skills.findIndex(skill => skill.type === type), 1)
     renderCards()
     renderProgress()
     closeModal()

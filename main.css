@@ -70,7 +70,8 @@
   border-radius: 6px;
 }
 
-#add-skill-form input:focus-visible, #add-skill-form textarea:focus-visible {
+#add-skill-form input:focus-visible,
+#add-skill-form textarea:focus-visible {
   outline: 2px solid #50C878;
 }
 
@@ -199,4 +200,14 @@
 }
 
 
+.modal-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
+.delete {
+  text-decoration: none;
+  font-weight: 600;
+  color: #C86665;
+}
