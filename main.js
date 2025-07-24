@@ -123,6 +123,10 @@ function modals() {
   }
 }
 
+function isInvalid(title, description) {
+  return !title || !description
+}
+
 
 function addNewSkill() {
   form.addEventListener('submit', (event) => {
@@ -131,7 +135,11 @@ function addNewSkill() {
     // let text = form.querySelector('#skill-text').value
     let title = event.target.title.value.trim()
     let text = event.target.description.value.trim()
-    if (!title && !text) return alert('Заполните все поля формы')
+
+    if (isInvalid(title, description)) {
+      return alert('Заполните все поля')
+    }
+
     const newSkill = {
       title,
       text,
