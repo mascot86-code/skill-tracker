@@ -1,10 +1,4 @@
-const skills = [
-  { title: 'HTML', text: 'HTML text', type: 'html', done: true },
-  { title: 'JavaScript', text: 'JavaScript text', type: 'js', done: true },
-  { title: 'Git', text: 'Git text', type: 'git', done: false },
-  { title: 'React', text: 'React text', type: 'react', done: false },
-  { title: 'Vue', text: 'Vue text', type: 'vue', done: false },
-]
+const skills = getAppState()
 
 // const skills = []
 
@@ -107,6 +101,7 @@ function modals() {
     const type = event.target.dataset.type
     const skill = skills.find(skill => skill.type === type)
     skill.done = !skill.done
+    saveAppState()
     renderCards()
     renderProgress()
     closeModal()
@@ -117,6 +112,7 @@ function modals() {
     if (target.className !== 'delete') return
     const type = event.target.dataset.type
     skills.splice(skills.findIndex(skill => skill.type === type), 1)
+    saveAppState()
     renderCards()
     renderProgress()
     closeModal()
@@ -147,10 +143,20 @@ function addNewSkill() {
       done: false
     }
     skills.push(newSkill)
+    saveAppState()
     form.reset()
     renderCards()
     renderProgress()
   })
+}
+
+function saveAppState() {
+  localStorage.setItem('skills', JSON.stringify(skills))
+}
+
+function getAppState() {
+  const row = localStorage.getItem('skills')
+  return row ? JSON.parse(row) : []
 }
 
 init()
