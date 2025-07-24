@@ -127,8 +127,10 @@ function modals() {
 function addNewSkill() {
   form.addEventListener('submit', (event) => {
     event.preventDefault()
-    let title = form.querySelector('#skill-name').value
-    let text = form.querySelector('#skill-text').value
+    // let title = form.querySelector('#skill-name').value
+    // let text = form.querySelector('#skill-text').value
+    let title = event.target.title.value.trim()
+    let text = event.target.description.value.trim()
     const newSkill = {
       title,
       text,
