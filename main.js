@@ -11,6 +11,33 @@ const progress = document.querySelector('#progress')
 const doneCheckbox = document.querySelector('#done-checkbox')
 const modalContent = document.querySelector('#modal-content')
 const form = document.querySelector('#add-skill-form')
+const theme = document.querySelector('.ikxBAC')
+const styles = document.querySelector('#styles')
+
+theme.addEventListener('change', changeTheme)
+
+function changeTheme() {
+  if (theme.checked) {
+    localStorage.setItem('theme', 'dark')
+  } else {
+    localStorage.setItem('theme', 'light')
+  }
+
+  location.reload()
+}
+
+
+function setTheme() {
+  if (localStorage.getItem('theme') == 'dark') {
+    document.body.classList.add('dark-mode')
+    styles.href = 'dark.css'
+    theme.checked = true
+  } else {
+    document.body.classList.remove('dark-mode')
+    styles.href = 'main.css'
+    theme.checked = false
+  }
+}
 
 
 function init() {
@@ -18,6 +45,7 @@ function init() {
   modals()
   renderProgress()
   addNewSkill()
+  setTheme()
 }
 
 function renderProgress() {
